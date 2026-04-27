@@ -1,0 +1,70 @@
+<div class="panel">
+  <div class="panel-header">
+    <div>
+      <p class="section-kicker">New Transaction</p>
+      <h2>Add Expense</h2>
+    </div>
+    <span class="status-chip">Live Entry</span>
+  </div>
+
+  <form class="expense-form" (ngSubmit)="addExpense()">
+    <div class="form-row">
+      <div class="form-field">
+        <label>Expense Title</label>
+        <input
+          type="text"
+          name="title"
+          [(ngModel)]="expense.title"
+          placeholder="Business lunch, AWS bill, flight ticket..."
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label>Amount</label>
+        <input
+          type="number"
+          name="amount"
+          [(ngModel)]="expense.amount"
+          placeholder="0.00"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-field">
+        <label>Category</label>
+        <select name="category" [(ngModel)]="expense.category">
+          <option *ngFor="let category of categories" [value]="category">
+            {{ category }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label>Date</label>
+        <input
+          type="date"
+          name="date"
+          [(ngModel)]="expense.date"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label>Description</label>
+      <textarea
+        name="description"
+        [(ngModel)]="expense.description"
+        placeholder="Add notes, vendor details, approval reference, or project code...">
+      </textarea>
+    </div>
+
+    <div class="form-actions">
+      <button class="secondary-btn" type="reset">Clear</button>
+      <button class="primary-btn" type="submit">+ Add Expense</button>
+    </div>
+  </form>
+</div>

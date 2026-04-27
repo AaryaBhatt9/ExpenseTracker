@@ -1,0 +1,34 @@
+<div class="panel dashboard-panel">
+  <div class="panel-header">
+    <div>
+      <p class="section-kicker">Analytics</p>
+      <h2>Spend Overview</h2>
+    </div>
+    <span class="status-chip">Chart.js</span>
+  </div>
+
+  <div class="chart-summary">
+    <div>
+      <p>Category Spend</p>
+      <h3>Real-time Insights</h3>
+    </div>
+    <span>Updated from DynamoDB aggregation</span>
+  </div>
+
+  <div class="chart-box">
+    <canvas
+      baseChart
+      [data]="barChartData"
+      [options]="barChartOptions"
+      [type]="barChartType">
+    </canvas>
+  </div>
+  
+  <div class="insight-card">
+    <h4>Insight</h4>
+    <p>
+      Your dashboard uses backend APIs to group expenses by category
+      and display real-time financial trends from DynamoDB.
+    </p>
+  </div>
+</div>

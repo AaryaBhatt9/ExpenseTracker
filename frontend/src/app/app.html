@@ -1,0 +1,71 @@
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">💼</div>
+      <div>
+        <h2>FinTrack</h2>
+        <p>Expense Management</p>
+      </div>
+    </div>
+
+    <nav>
+      <a class="active">Dashboard</a>
+      <a>Transactions</a>
+      <a>Reports</a>
+      <a>Budgets</a>
+      <a>Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <p class="page-label">Corporate Finance Suite</p>
+        <h1>Expense Tracker</h1>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-avatar">A</div>
+        <div>
+          <strong>Admin User</strong>
+          <p>Finance Manager</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="stats-grid">
+      <div class="stat-card">
+        <p>Total Expenses</p>
+        <h3>${{ stats.totalExpenses }}</h3>
+        <span class="positive">Live from DynamoDB</span>
+      </div>
+
+      <div class="stat-card">
+        <p>Transactions</p>
+        <h3>{{ stats.transactionCount }}</h3>
+        <span>Across all categories</span>
+      </div>
+
+      <div class="stat-card">
+        <p>Top Category</p>
+        <h3>{{ stats.topCategory }}</h3>
+        <span>Highest spend area</span>
+      </div>
+
+      <div class="stat-card">
+        <p>Monthly Budget</p>
+        <h3>{{ stats.monthlyBudgetUsed }}%</h3>
+        <span class="warning">Budget utilized</span>
+      </div>
+    </section>
+
+    <section class="content-grid">
+      <div>
+        <app-expense-form></app-expense-form>
+        <app-expense-list></app-expense-list>
+      </div>
+
+      <app-dashboard></app-dashboard>
+    </section>
+  </main>
+</div>

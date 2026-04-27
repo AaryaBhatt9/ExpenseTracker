@@ -1,0 +1,61 @@
+<div class="panel">
+  <div class="panel-header">
+    <div>
+      <p class="section-kicker">Recent Activity</p>
+      <h2>Transactions</h2>
+    </div>
+    <span class="status-chip">{{ expenses.length }} Records</span>
+  </div>
+
+  <div class="empty-state" *ngIf="expenses.length === 0">
+    <div class="empty-icon">📄</div>
+    <h3>No transactions yet</h3>
+    <p>Add your first expense to start tracking spending activity.</p>
+  </div>
+
+  <div class="table-container" *ngIf="expenses.length > 0">
+    <table>
+      <thead>
+        <tr>
+          <th>Expense</th>
+          <th>Category</th>
+          <th>Date</th>
+          <th>Amount</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let expense of expenses">
+          <td>
+            <div class="expense-title">
+              <div class="expense-icon">
+                {{ expense.category.charAt(0) }}
+              </div>
+              <div>
+                <strong>{{ expense.title }}</strong>
+                <p>{{ expense.description || 'No additional notes' }}</p>
+              </div>
+            </div>
+          </td>
+
+          <td>
+            <span class="category-pill">{{ expense.category }}</span>
+          </td>
+
+          <td>{{ expense.date | date }}</td>
+
+          <td class="amount">${{ expense.amount }}</td>
+
+          <td>
+            <button class="icon-btn" (click)="deleteExpense(expense.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
